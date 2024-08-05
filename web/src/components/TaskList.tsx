@@ -36,7 +36,7 @@ function TaskList({ tasks, onComplete }: TaskListProps) {
                 ].filter(Boolean)}
               >
                 <List.Item.Meta
-                  title={task.title}
+                  title={<span style={{ fontWeight: 'bold' }}>{task.title}</span>}
                   description={`Group: ${task.group}`}
                 />
               </List.Item>

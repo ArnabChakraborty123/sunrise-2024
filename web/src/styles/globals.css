@@ -40,6 +40,48 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+body {
+  background-color: #f0f2f5; /* Set the background color to gray */
+  color: #000;
+}
+
+.ant-layout {
+  background: #f0f2f5 !important; /* Ensure the layout background is also gray */
+}
+
+.ant-layout-header {
+  background: #fff !important; /* Set the header background to white */
+}
+
+.ant-card {
+  background: #fff; /* Ensure cards have a white background */
+}
+
+.ant-card-body {
+  padding: 16px !important;
+}
+
+.ant-card-extra {
+  padding: 0 0 16px 0 !important;
+}
+.ant-btn-primary {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.ant-btn-primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+@media (max-width: 768px) {
+  .ant-col {
+    margin-bottom: 16px;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

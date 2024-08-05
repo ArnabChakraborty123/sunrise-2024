@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Layout, Typography, Row, Col, Badge } from "antd";
+import { Layout, Typography, Row, Col, Badge, Button } from "antd";
 import Task from "@/model/Task";
 import Taskboard from "@/components/Taskboard";
+import TaskList from "@/components/TaskList";
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
@@ -37,32 +38,24 @@ export default function Home() {
   };
 
   return (
-    <Layout className="layout">
-      <Header>
-        <Title level={3} style={{ color: "white", margin: 0 }}>
-          Taskboard System
-        </Title>
+    <Layout style={{ minHeight: '100vh', background: 'white' }}>
+      <Header style={{ padding: '0 24px', background: '#fff' }}>
+        <Title level={2} style={{ color: '#333' }}>Task Board</Title>
       </Header>
-      <Content style={{ padding: "0 50px" }}>
-        <Row gutter={16}>
-          <Col span={8}>
-            <Badge count={activeTasks.length} showZero>
-              <Taskboard
-                title="In Progress"
-                tasks={activeTasks}
-                onComplete={handleCompleteTask}
-              />
-            </Badge>
+      <Content style={{ padding: '24px' }}>
+        <Row gutter={[16, 16]}>
+          <Col xs={24} md={8}>
+            <Taskboard title="To-Do" tasks={allTasks} />
           </Col>
-          <Col span={8}>
-            <Badge count={allTasks.length} showZero>
-              <Taskboard title="To-Do" tasks={allTasks} />
-            </Badge>
+          <Col xs={24} md={8}>
+            <Taskboard
+              title="In Progress"
+              tasks={activeTasks}
+              onComplete={handleCompleteTask}
+            />
           </Col>
-          <Col span={8}>
-            <Badge count={completedTasks.length} showZero>
-              <Taskboard title="Completed" tasks={completedTasks} />
-            </Badge>
+          <Col xs={24} md={8}>
+            <Taskboard title="Completed" tasks={completedTasks} />
           </Col>
         </Row>
       </Content>
