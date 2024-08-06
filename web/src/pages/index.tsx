@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { Layout, Typography, Row, Col, Badge, Button } from "antd";
+import { Layout, Typography, Row, Col } from "antd";
 import Task from "@/model/Task";
 import Taskboard from "@/components/Taskboard";
-import TaskList from "@/components/TaskList";
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
