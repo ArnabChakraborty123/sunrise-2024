@@ -40,21 +40,39 @@
   --card-border-rgb: 131, 134, 135;
 }
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
 body {
-  background-color: #f0f2f5; /* Set the background color to gray */
-  color: #000;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 .ant-layout {
-  background: #f0f2f5 !important; /* Ensure the layout background is also gray */
+  background: #f0f2f5 !important;
 }
 
 .ant-layout-header {
-  background: #fff !important; /* Set the header background to white */
+  background: #fff !important;
 }
 
 .ant-card {
-  background: #fff; /* Ensure cards have a white background */
+  background: #fff;
 }
 
 .ant-card-body {
@@ -64,6 +82,7 @@ body {
 .ant-card-extra {
   padding: 0 0 16px 0 !important;
 }
+
 .ant-btn-primary {
   background-color: #1890ff;
   border-color: #1890ff;
@@ -74,6 +93,11 @@ body {
 .ant-btn-primary:hover {
   background-color: #40a9ff;
   border-color: #40a9ff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -113,37 +137,8 @@ body {
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
   }
-}
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;  
+    color-scheme: dark;
   }
 }

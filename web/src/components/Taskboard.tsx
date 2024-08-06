@@ -9,8 +9,7 @@ interface TaskboardProps {
   onComplete?: (taskId: number) => void;
 }
 
-function Taskboard({ title, tasks, onComplete }: TaskboardProps) {
-  return (
+function Taskboard({ title, tasks, onComplete }: Readonly<TaskboardProps>) {  return (
     <div style={{ background: '#f0f2f5', padding: 16, borderRadius: 8 }}>
       <Title level={4} style={{ marginBottom: 16 }}>
         {title}

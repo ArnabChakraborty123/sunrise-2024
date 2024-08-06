@@ -3,23 +3,22 @@ import { CheckOutlined } from "@ant-design/icons";
 import Task from "@/model/Task";
 
 interface TaskListProps {
-  tasks: Task[];
-  onComplete?: (taskId: number) => void;
+  readonly tasks: ReadonlyArray<Task>;
+  readonly onComplete?: (taskId: number) => void;
 }
 
-function TaskList({ tasks, onComplete }: TaskListProps) {
-  // Split tasks into pairs for horizontal grouping
-  const groupedTasks = tasks.reduce((result, value, index, array) => {
+function TaskList({ tasks, onComplete }: Readonly<TaskListProps>) {
+  const groupedTasks: ReadonlyArray<ReadonlyArray<Task>> = tasks.reduce((result, value, index, array) => {
     if (index % 2 === 0) {
-      result.push(array.slice(index, index + 2));
+      return [...result, array.slice(index, index + 2)];
     }
     return result;
-  }, [] as Task[][]);
+  }, [] as ReadonlyArray<ReadonlyArray<Task>>);
 
   return (
     <div>
-      {groupedTasks.map((group, index) => (
-        <Row key={index} gutter={16}>
+      {groupedTasks.map((group) => (
+        <Row key={group.map(task => task.id).join('-')} gutter={16}>
           {group.map((task) => (
             <Col span={12} key={task.id}>
               <List.Item

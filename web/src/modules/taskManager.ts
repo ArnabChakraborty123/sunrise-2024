@@ -13,7 +13,6 @@ export function initializeTasks() {
 }
 
 export function getActiveTasks(): Task[] {
-    // Return tasks that are not completed and are from the lowest incomplete group
     const firstIncompleteGroup = Math.min(
         ...tasks.filter(task => !task.completed).map(task => task.group)
     );
@@ -33,10 +32,8 @@ export function completeTask(taskTitle: string): void {
     if (task) {
         task.completed = true;
 
-        // Unlock the next task in the same group if it exists
         const nextTaskInGroup = tasks.find(t => t.group === task.group && !t.completed);
         if (!nextTaskInGroup) {
-            // If no more tasks in the current group, unlock the first task in the next group
             const nextGroupTasks = tasks.filter(t => t.group === task.group + 1 && !t.completed);
             if (nextGroupTasks.length > 0) {
                 nextGroupTasks[0].completed = false;
