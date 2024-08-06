@@ -53,14 +53,13 @@ body {
 }
 
 body {
-  background-color: #f0f2f5;
-  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
-    )
+    ),
     rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb));
 }
 
 .ant-layout {
